@@ -93,6 +93,11 @@ int _tmain(int argc, _TCHAR* argv[])
 		vecSales_data.push_back(salesdata);
 	}
 
+	ofstream out("Sales.txt");
+	out << "this is a out test" << endl;
+	out.close();
+	in.close();
+
 	system("pause");
 	return 0;
 }

@@ -1,4 +1,4 @@
-﻿生成启动时间为 2016/1/23 16:40:49。
+﻿生成启动时间为 2016/1/23 21:20:14。
      1>项目“C:\Users\Tangbin\Documents\GitHub\Learning-Cplusplus\8.2.1\8.2.1\8.2.1.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\8.2.1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt 8.2.1.cpp
@@ -11,4 +11,4 @@
 
 生成成功。
 
-已用时间 00:00:00.65
+已用时间 00:00:00.84
