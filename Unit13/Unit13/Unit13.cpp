@@ -4,6 +4,11 @@
 #include "stdafx.h"
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include "ex13_31.h"
+#include "message.h"
+#include "folder.h"
+
 using namespace std;
 class Point
 {
@@ -22,31 +27,6 @@ void printvec(vector<int> vec)
 	cout << *vec.begin() << endl;
 }
 
-class HasPtr
-{
-public:
-	HasPtr(const std::string &s = std::string()) :ps(new std::string(s)), i(0){}
-	HasPtr(const HasPtr& hsptr)
-	{
-		this->i = hsptr.i;
-		this->ps = new std::string(*(hsptr.ps));
-	}
-	HasPtr& operator=(const HasPtr& lf)
-	{
-		this->i = lf.i;
-		std::string *new_ps = new string(*lf.ps);
-		delete ps;
-		ps = new_ps;
-		return *this;
-	}
-	~HasPtr()
-	{
-		delete ps;
-	}
-private:
-	std::string *ps;
-	int i;
-};
 
 struct X
 {
@@ -63,8 +43,75 @@ struct X
 		cout << "~X()" << endl;
 	}
 };
+//13.28
+class TreeNode
+{
+public:
+	TreeNode():value(""),count(new int(0)),left(nullptr),right(nullptr){}
+	TreeNode(TreeNode& trnode)
+	{
+		value = trnode.value;
+		++*trnode.count;
+		count = trnode.count;
+		left = trnode.left;
+		right = trnode.right;
+	}
 
+	TreeNode& operator=(const TreeNode& trnode)
+	{
+		++*trnode.count;
+		if (--*trnode.count == 0)
+		{
+			if (left)
+				delete left;
+			if (right)
+				delete right;
+		}
+		delete count;
+		count = trnode.count;
+		value = trnode.value;
+		left = trnode.left;
+		right = trnode.right;
+		return *this;
+	}
 
+	~TreeNode()
+	{
+		if (--*count == 0)
+		{
+			if (left)
+				delete left;
+			if (right)
+				delete right;
+		}
+		delete count;
+	}
+private:
+	string value;
+	int* count;
+	TreeNode *left;
+	TreeNode *right;
+
+};
+class BinStrTree
+{
+public:
+	BinStrTree() :root(new TreeNode()){ }
+	BinStrTree(BinStrTree& rhs) :root(new TreeNode(*rhs.root)){}
+	BinStrTree& operator = (const BinStrTree& rhs)
+	{
+		TreeNode* temp = new TreeNode(*rhs.root);
+		delete root;
+		root = temp;
+		return *this;
+	}
+	~BinStrTree()
+	{
+		delete root;
+	}
+private:
+	TreeNode *root;
+};
 void func(const X& xk)
 {
 	X* xporint = new X();
@@ -105,8 +152,25 @@ private:
 int Employee::count = 0;
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Employee em("tangbin");
-	Employee a = em;
+	Message msg1("blue"),msg2("Yellow"),msg3("car"),msg4("bus");
+	Folder color, traffic;
+	msg1.addFolder(&color);
+	msg2.addFolder(&color);
+	msg3.addFolder(&traffic);
+	msg4.addFolder(&traffic);
+
+	color.addMsg(&msg1);
+	color.addMsg(&msg2);
+	traffic.addMsg(&msg3);
+	traffic.addMsg(&msg4);
+
+	color.printFolder();
+	swap(color, traffic);
+	color.printFolder();
+	swap(msg1, msg3);
+	color.printFolder();
+	msg1.debugpring();
+
 	system("pause");
 	return 0;
 }
