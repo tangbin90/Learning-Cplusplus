@@ -11,8 +11,7 @@ public:
 	Folder() = default;
 	Folder& operator=(Folder&);
 	Folder(const Folder& fd);
-	void addMsg(Message*);
-	void remMsg(Message*);
+
 	void RemoveFolderToMsg();
 	void AddFolderToMsg();
 	void printFolder();
@@ -20,7 +19,8 @@ public:
 	~Folder();
 private:
 	std::set<Message*> MessageFolder;
-	
+	void addMsg(Message*);
+	void remMsg(Message*);
 };
 
 #endif

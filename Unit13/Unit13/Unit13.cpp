@@ -154,15 +154,10 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	Message msg1("blue"),msg2("Yellow"),msg3("car"),msg4("bus");
 	Folder color, traffic;
-	msg1.addFolder(&color);
-	msg2.addFolder(&color);
-	msg3.addFolder(&traffic);
-	msg4.addFolder(&traffic);
-
-	color.addMsg(&msg1);
-	color.addMsg(&msg2);
-	traffic.addMsg(&msg3);
-	traffic.addMsg(&msg4);
+	msg1.save(color);
+	msg2.save(color);
+	msg3.save(traffic);
+	msg4.save(traffic);
 
 	color.printFolder();
 	swap(color, traffic);

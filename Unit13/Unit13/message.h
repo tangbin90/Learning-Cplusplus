@@ -20,8 +20,7 @@ public:
 	~Message();
 	void save(Folder&);
 	void remove(Folder&);
-	void addFolder(Folder*);
-	void deleteFolder(Folder*);
+
 	void debugpring()
 	{
 		std::cout << contents << std::endl;
@@ -31,6 +30,8 @@ private:
 	std::set<Folder*> folders;
 	void add_to_Folders(const Message&);
 	void remove_from_Folders();
+	void addFolder(Folder*);
+	void deleteFolder(Folder*);
 };
 
 #endif
