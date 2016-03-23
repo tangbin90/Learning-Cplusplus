@@ -83,6 +83,7 @@
     <ClInclude Include="folder.h" />
     <ClInclude Include="message.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StrVec.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +93,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="StrVec.cpp" />
     <ClCompile Include="Unit13.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
