@@ -11,7 +11,6 @@ public:
 	Folder() = default;
 	Folder& operator=(Folder&);
 	Folder(const Folder& fd);
-
 	void RemoveFolderToMsg();
 	void AddFolderToMsg();
 	void printFolder();

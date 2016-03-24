@@ -22,8 +22,8 @@ ostream& print(ostream& os, const QueryResult& qr)
 	os << qr.sought << " occurs " << qr.lines->size() << " " << ((qr.lines->size() == 1) ? "time" : "times")<< endl;
 	for (auto num : *(qr.lines))
 	{
-		ConststrBlobPtr p(*(qr.file), num-1);
-		os << "\t(line" << num << ")" << p.deref() << endl;
+		auto data = (qr.file)->at(num-1);
+		os << "\t(line" << num << ")" << data << endl;
 	}
 	return os;
 }

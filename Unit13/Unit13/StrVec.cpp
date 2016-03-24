@@ -140,3 +140,11 @@ void StrVec::resize(size_t size, std::string& T)
 	else
 		return;
 }
+
+StrVec::StrVec(std::initializer_list<std::string> li)
+{
+	auto data = alloc_n_copy(li.begin(), li.end());
+	elements = data.first;
+	first_free = cap = data.second;
+}
+

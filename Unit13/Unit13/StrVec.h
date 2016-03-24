@@ -8,6 +8,7 @@ public:
 	StrVec() :
 		elements(nullptr), first_free(nullptr), cap(nullptr){}
 	StrVec(const StrVec&);
+	StrVec(std::initializer_list<std::string>);
 	StrVec& operator=(const StrVec&);
 	~StrVec();
 	void push_back(const std::string&);
@@ -17,7 +18,7 @@ public:
 	std::string* end() const { return first_free; }
 	void reserve(size_t size);
 	size_t capacity();
-	size_t size();
+	size_t size();	
 	void resize(size_t size);
 	void resize(size_t size, std::string& T);
 private:

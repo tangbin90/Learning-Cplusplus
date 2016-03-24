@@ -7,7 +7,7 @@
 #include <sstream>
 #include <algorithm>
 #include <memory>
-#include "Blob.h"
+#include "StrVec.h"
 
 using namespace std;
 class QueryResult;
@@ -15,7 +15,7 @@ class TextQuery
 {
 	friend QueryResult;
 public:
-	TextQuery(std::ifstream &in) :sp(new StrBlob())
+	TextQuery(std::ifstream &in) :sp(new StrVec())
 	{
 		std::string line;
 		int countline = 1;
@@ -40,7 +40,7 @@ public:
 
 	QueryResult query(const string word)const;
 private:
-	shared_ptr<StrBlob> sp;
+	shared_ptr<StrVec> sp;
 	map<string, shared_ptr<set<int>>> wordline;
 };
 
@@ -48,7 +48,7 @@ class QueryResult
 {
 	friend ostream& print(ostream&, const QueryResult&);
 public:
-	QueryResult(string s, shared_ptr<StrBlob> sp, shared_ptr<set<int>> line) :sought(s), lines(line), file(sp)
+	QueryResult(string s, shared_ptr<StrVec> sp, shared_ptr<set<int>> line) :sought(s), lines(line), file(sp)
 	{}
 	set<int>::iterator begin()
 	{
@@ -59,12 +59,12 @@ public:
 	{
 		return lines->end();
 	}
-	shared_ptr<StrBlob> get_file()
+	shared_ptr<StrVec> get_file()
 	{
 		return file;
 	}
 private:
 	string sought;
 	shared_ptr<set<int>> lines;
-	shared_ptr<StrBlob> file;
+	shared_ptr<StrVec> file;
 };

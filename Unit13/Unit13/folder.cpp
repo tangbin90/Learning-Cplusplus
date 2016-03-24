@@ -67,3 +67,4 @@ void swap(Folder& fd1, Folder& fd2)
 	fd1.AddFolderToMsg();
 	fd2.AddFolderToMsg();
 }
+
