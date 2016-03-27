@@ -8,10 +8,13 @@ public:
 	StrVec() :
 		elements(nullptr), first_free(nullptr), cap(nullptr){}
 	StrVec(const StrVec&);
+	StrVec(StrVec &&p) _NOEXCEPT;
+	StrVec& operator=(StrVec &&rhs) _NOEXCEPT;
 	StrVec(std::initializer_list<std::string>);
 	StrVec& operator=(const StrVec&);
 	~StrVec();
 	void push_back(const std::string&);
+	void push_back(std::string&&);
 	size_t size() const{ return cap - elements; };
 	size_t capacity() const{ return cap - elements; }
 	std::string* begin() const { return elements; }
@@ -22,7 +25,7 @@ public:
 	void resize(size_t size);
 	void resize(size_t size, std::string& T);
 private:
-	static std::allocator<std::string> alloc;
+	std::allocator<std::string> alloc;
 
 	void chk_n_alloc()
 	{

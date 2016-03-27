@@ -17,6 +17,8 @@ public:
 	{}
 	Message(const Message&);
 	Message& operator=(const Message&);
+	Message(Message&&) _NOEXCEPT;
+	Message& operator=(Message&&) _NOEXCEPT;
 	~Message();
 	void save(Folder&);
 	void remove(Folder&);

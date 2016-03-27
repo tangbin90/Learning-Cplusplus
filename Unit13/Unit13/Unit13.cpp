@@ -8,7 +8,7 @@
 #include "ex13_31.h"
 #include "message.h"
 #include "folder.h"
-
+#include "Foo.h"
 using namespace std;
 class Point
 {
@@ -152,20 +152,22 @@ private:
 int Employee::count = 0;
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Message msg1("blue"),msg2("Yellow"),msg3("car"),msg4("bus");
-	Folder color, traffic;
-	msg1.save(color);
-	msg2.save(color);
-	msg3.save(traffic);
-	msg4.save(traffic);
+	//Message msg1("blue"),msg2("Yellow"),msg3("car"),msg4("bus");
+	//Folder color, traffic;
+	//msg1.save(color);
+	//msg2.save(color);
+	//msg3.save(traffic);
+	//msg4.save(traffic);
 
-	color.printFolder();
-	swap(color, traffic);
-	color.printFolder();
-	swap(msg1, msg3);
-	color.printFolder();
-	msg1.debugpring();
-
+	//color.printFolder();
+	//swap(color, traffic);
+	//color.printFolder();
+	//swap(msg1, msg3);
+	//color.printFolder();
+	//msg1.debugpring();
+	Foo().sorted(); // call "&&"
+	Foo f;
+	f.sorted(); // call "const &"
 	system("pause");
 	return 0;
 }

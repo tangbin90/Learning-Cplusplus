@@ -72,23 +72,45 @@ String& String::operator=(String& str)
 	return *this;
 }
 
-String& String::operator+(String& str)
+String::String(String&& str) _NOEXCEPT:elements(str.elements), firstfree(str.firstfree), cap(str.cap)
 {
-	 
+	str.elements = str.firstfree = str.cap = nullptr;
 }
+
+String& String::operator=(String&& str)_NOEXCEPT
+{
+	if (this != &str)
+	{
+		free();
+		elements = str.elements;
+		cap = str.cap;
+		firstfree = str.firstfree;
+		str.elements = str.cap = str.firstfree = nullptr;
+	}
+	return *this;
+}
+
+
 
 std::ostream& operator<<(std::ostream& out, String& str)
 {
 	out << str.elements << std::endl;
 	return out;
 }
-
+String baz()
+{
+	String ret("world");
+	return ret; // first avoided
+}
 int _tmain(int argc, _TCHAR* argv[])
 {
 	std::vector<String> vecstr;
 	String str1("tangbin");
+	String str2("nihao");
+
+	vecstr.push_back(str2);
 	vecstr.push_back(str1);
-	vecstr.push_back("good job");
+	String s5 = baz(); // second avoided
 	//vecstr.push_back(str2);
 	//vecstr.push_back(str3);
 	system("pause");

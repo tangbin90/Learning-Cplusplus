@@ -11,8 +11,9 @@ public:
 	String() :String(""){}
 	String(const char*);
 	String(const String& str);//复制构造函数一定要声明const
+	String(String&& str) _NOEXCEPT;
 	String& operator=(String&);
-	String& operator+(String&);
+	String& operator=(String&&)_NOEXCEPT;
 	size_t size()const { return firstfree - elements; }
 	size_t capacity()const { return cap - elements; }
 	char* begin()const{ return elements; }

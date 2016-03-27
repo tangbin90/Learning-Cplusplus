@@ -68,3 +68,33 @@ void swap(Message& lhs, Message& rhs)
 	rhs.add_to_Folders(rhs);
 	
 }
+
+Message::Message(Message&& msg) _NOEXCEPT
+{
+	folders = std::move(msg.folders);
+	for (auto f : folders)
+	{
+		f->remMsg(&msg);
+		f->addMsg(this);
+	}
+	msg.folders.clear();
+	contents = std::move(msg.contents);
+}
+
+Message& Message::operator=(Message&& msg)_NOEXCEPT
+{
+	if (this != &msg)
+	{
+		remove_from_Folders();
+		folders = std::move(msg.folders);
+		for (auto f : folders)
+		{
+			f->remMsg(&msg);
+			f->addMsg(this);
+		}
+		msg.folders.clear();
+		contents = std::move(msg.contents);
+	}
+	return *this;
+}
+

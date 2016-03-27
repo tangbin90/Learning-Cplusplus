@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "StrVec.h"
 
 void StrVec::push_back(const std::string& s)
@@ -31,6 +32,11 @@ StrVec::StrVec(const StrVec &s)
 	auto newdata = alloc_n_copy(s.begin(), s.end());
 	elements = newdata.first;
 	first_free = cap = newdata.second;
+}
+void StrVec::push_back(std::string &&s)
+{
+	chk_n_alloc();
+	alloc.construct(first_free++, std::move(s));
 }
 
 StrVec::~StrVec()
@@ -139,6 +145,26 @@ void StrVec::resize(size_t size, std::string& T)
 	}
 	else
 		return;
+}
+
+StrVec::StrVec(StrVec &&p) _NOEXCEPT:elements(p.elements), first_free(p.first_free), cap(p.cap)
+{
+	p.elements = nullptr;
+	p.first_free = nullptr;
+	p.cap = nullptr;
+}
+
+StrVec &StrVec::operator=(StrVec &&rhs) _NOEXCEPT
+{
+	if (this != &rhs)
+	{
+		free();
+		elements = rhs.elements;
+		first_free = rhs.first_free;
+		cap = rhs.cap;
+		rhs.elements = rhs.first_free = rhs.cap = nullptr;
+	}
+	return *this;
 }
 
 StrVec::StrVec(std::initializer_list<std::string> li)
