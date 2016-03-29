@@ -90,11 +90,32 @@ String& String::operator=(String&& str)_NOEXCEPT
 	return *this;
 }
 
-
-
-std::ostream& operator<<(std::ostream& out, String& str)
+bool operator==(String& str1, String& str2)
 {
-	out << str.elements << std::endl;
+	const char* c = str1.c_str();
+	const char* s = str2.c_str();
+	if (str1.size() != str2.size())
+		return false;
+
+	while (*c)
+	{
+		if (*c++ != *s++)
+			return false;
+	}
+	return true;
+}
+
+bool operator!=(String& str1, String& str2)
+{
+	return !(str1 == str2);
+}
+
+std::ostream& operator<<(std::ostream& out, const String& str)
+{
+	const char* c = str.c_str();
+	while (*c)
+		out << *c++;
+	out << std::endl;
 	return out;
 }
 String baz()
@@ -106,7 +127,9 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	std::vector<String> vecstr;
 	String str1("tangbin");
-	String str2("nihao");
+	String str2("tangbin");
+	if (str1 == str2)
+		std::cout << "same" << std::endl;
 
 	vecstr.push_back(str2);
 	vecstr.push_back(str1);

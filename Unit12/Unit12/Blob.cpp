@@ -71,3 +71,12 @@ StrBlobPtr& StrBlobPtr::incr()
 
 bool StrBlobPtr::operator != (const StrBlobPtr& p) { return p.curr != curr; }
 
+bool operator==(const StrBlob& str1, const StrBlob& str2)
+{
+	return *str1.data == *str2.data;
+}
+
+bool operator!=(const StrBlob &lhs, const StrBlob &rhs)
+{
+	return !(lhs == rhs);
+}

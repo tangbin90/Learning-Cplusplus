@@ -4,6 +4,9 @@
 
 class StrVec
 {
+	friend bool operator==(const StrVec&, const StrVec&);
+	friend bool operator!=(const StrVec& str1, const StrVec& str2);
+
 public:
 	StrVec() :
 		elements(nullptr), first_free(nullptr), cap(nullptr){}
@@ -38,5 +41,8 @@ private:
 	std::string* first_free;
 	std::string* cap;
 };
+
+bool operator==(const StrVec&, const StrVec&);
+bool operator!=(const StrVec& str1, const StrVec& str2);
 
 #endif

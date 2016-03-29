@@ -174,3 +174,25 @@ StrVec::StrVec(std::initializer_list<std::string> li)
 	first_free = cap = data.second;
 }
 
+bool operator==(const StrVec& str1, const StrVec& str2)
+{
+	if (str1.size() != str2.size())
+		return false;
+	std::string* c = str1.begin();
+	std::string* s = str2.begin();
+	while (c != str1.end())
+	{
+		if (*c++ != *s++)
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+bool operator!=(const StrVec& str1, const StrVec& str2)
+{
+	return !(str1 == str2);
+}
+
+
