@@ -7,8 +7,10 @@
 class String
 {
 	friend std::ostream& operator<<(std::ostream& out, String& str);
-	friend bool operator!=(String&, String&);
-	friend bool operator==(String&, String&);
+	friend bool operator==(const String&, const String&);
+	friend bool operator!=(const String&, const String&);
+	friend bool operator<(const String&, const String&);
+
 public:
 	String() :String(""){}
 	String(const char*);
@@ -16,6 +18,8 @@ public:
 	String(String&& str) _NOEXCEPT;
 	String& operator=(String&);
 	String& operator=(String&&)_NOEXCEPT;
+	char operator[](std::size_t n);
+	const char operator[](std::size_t n) const;
 	size_t size()const { return firstfree - elements; }
 	size_t capacity()const { return cap - elements; }
 	char* begin()const{ return elements; }
@@ -38,7 +42,8 @@ private:
 	std::allocator<char> alloc;
 
 };
-bool operator==(String&, String&);
-bool operator!=(String&, String&);
+bool operator==(const String&, const String&);
+bool operator!=(const String&, const String&);
+bool operator<(const String&, const String&);
 
 #endif

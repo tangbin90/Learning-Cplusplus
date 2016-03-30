@@ -90,7 +90,7 @@ String& String::operator=(String&& str)_NOEXCEPT
 	return *this;
 }
 
-bool operator==(String& str1, String& str2)
+bool operator==(const String& str1, const String& str2)
 {
 	const char* c = str1.c_str();
 	const char* s = str2.c_str();
@@ -105,7 +105,7 @@ bool operator==(String& str1, String& str2)
 	return true;
 }
 
-bool operator!=(String& str1, String& str2)
+bool operator!=(const String& str1, const String& str2)
 {
 	return !(str1 == str2);
 }
@@ -118,25 +118,48 @@ std::ostream& operator<<(std::ostream& out, const String& str)
 	out << std::endl;
 	return out;
 }
+
+bool operator<(const String& lhs, const String& rhs)
+{
+	const char* c = lhs.c_str();
+	const char* s = rhs.c_str();
+
+	while (*c&&*s)
+	{
+		if (*c < *s)
+			return true;
+		else if (*c > *s)
+			return false;
+		else
+		{
+			c++;
+			s++;
+		}
+	}
+	return false;
+}
+
 String baz()
 {
 	String ret("world");
 	return ret; // first avoided
 }
-int _tmain(int argc, _TCHAR* argv[])
-{
-	std::vector<String> vecstr;
-	String str1("tangbin");
-	String str2("tangbin");
-	if (str1 == str2)
-		std::cout << "same" << std::endl;
 
-	vecstr.push_back(str2);
-	vecstr.push_back(str1);
-	String s5 = baz(); // second avoided
-	//vecstr.push_back(str2);
-	//vecstr.push_back(str3);
-	system("pause");
-	return 0;
+char String::operator[](std::size_t n)
+{
+	if (n >= size())
+	{
+		throw std::out_of_range("dereference out of range");
+	}
+	return *(elements + n);
+}
+
+const char String::operator[](std::size_t n) const
+{
+	if (n >= size())
+	{
+		throw std::out_of_range("dereference out of range");
+	}
+	return *(elements + n);
 }
 

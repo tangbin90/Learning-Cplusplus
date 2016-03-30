@@ -29,9 +29,11 @@ public:
 	void push_back(string str){ data->push_back(str); }
 	void push_back(string&& str){ data->push_back(std::move(str)); }
 	void pop_back();
+	string& operator[](std::size_t n);
+	const string& operator[](std::size_t n) const;
 	string& front() const;
 	string& back() const;
-
+private:
 	shared_ptr<vector<string>> data;
 	void check(size_type i, const std::string &msg) const;
 };
@@ -52,6 +54,12 @@ public:
 	string& deref() const;
 	StrBlobPtr& incr();
 	bool operator!=(const StrBlobPtr& strptr);
+	string& operator[](std::size_t n);
+	StrBlobPtr& operator++();
+	StrBlobPtr& operator--();
+	StrBlobPtr& operator++(int);
+	StrBlobPtr& operator--(int);
+	const string& operator[](std::size_t n) const;
 
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;

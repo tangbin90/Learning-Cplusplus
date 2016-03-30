@@ -6,13 +6,17 @@ class StrVec
 {
 	friend bool operator==(const StrVec&, const StrVec&);
 	friend bool operator!=(const StrVec& str1, const StrVec& str2);
+	friend bool operator<(const StrVec& str1, const StrVec& str2);
 
 public:
 	StrVec() :
 		elements(nullptr), first_free(nullptr), cap(nullptr){}
 	StrVec(const StrVec&);
 	StrVec(StrVec &&p) _NOEXCEPT;
+	StrVec& operator=(std::initializer_list<std::string>);
 	StrVec& operator=(StrVec &&rhs) _NOEXCEPT;
+	std::string& operator[](std::size_t n);
+	const std::string& operator[](std::size_t n) const;
 	StrVec(std::initializer_list<std::string>);
 	StrVec& operator=(const StrVec&);
 	~StrVec();
@@ -44,5 +48,6 @@ private:
 
 bool operator==(const StrVec&, const StrVec&);
 bool operator!=(const StrVec& str1, const StrVec& str2);
+bool operator<(const StrVec& str1, const StrVec& str2);
 
 #endif

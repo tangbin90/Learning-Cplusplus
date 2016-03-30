@@ -23,6 +23,7 @@ void StrVec::free()
 			alloc.destroy(--p);
 		}
 		alloc.deallocate(elements, cap - elements);
+		first_free = elements;
 	}
 }
 
@@ -195,4 +196,29 @@ bool operator!=(const StrVec& str1, const StrVec& str2)
 	return !(str1 == str2);
 }
 
+StrVec& StrVec::operator=(std::initializer_list<std::string> il)
+{
+	auto data = alloc_n_copy(il.begin(), il.end());
+	free();
+	elements = data.first;
+	first_free = cap = data.second;
+	return *this;
+}
 
+std::string& StrVec::operator[](std::size_t n)
+{
+	if (n >= size())
+	{
+		throw std::out_of_range("Out of range");
+	}
+	return *(elements + n);
+}
+
+const std::string& StrVec::operator[](std::size_t n) const 
+{
+	if (n >= size())
+	{
+		throw std::out_of_range("Out of range");
+	}
+	return *(elements + n);
+}

@@ -91,5 +91,69 @@ bool operator!=(const StrBlob &lhs, const StrBlob &rhs)
 
 bool operator<(const StrBlob &lhs, const StrBlob &rhs)
 {
-	lhs.
+	return *lhs.data < *rhs.data;
+}
+
+bool operator<(const StrBlobPtr& lhs, const StrBlobPtr& rhs)
+{
+	return lhs.curr < rhs.curr;
+}
+
+bool operator<(const ConststrBlobPtr& lhs, const ConststrBlobPtr& rhs)
+{
+	return lhs.curr < rhs.curr;
+}
+
+string& StrBlob::operator[](std::size_t n)
+{
+	check(n, "out of range");
+	return (*data)[n];
+}
+
+const string& StrBlob::operator[](std::size_t n) const
+{
+	check(n, "out of range");
+	return (*data)[n];
+}
+
+const string& StrBlobPtr::operator[](std::size_t n) const
+{
+	auto p = check(curr + n, "dereference past end");
+
+	return (*p)[n + curr];
+}
+
+string& StrBlobPtr::operator[](std::size_t n)
+{
+	auto p = check(curr + n, "dereference past end");
+
+	return (*p)[n + curr];
+}
+
+StrBlobPtr& StrBlobPtr::operator++()//Ç°ÖÃµÝÔö
+{
+	check(curr, "increment past end of strBlobPtr");
+	++curr;
+	return *this;
+}
+
+StrBlobPtr& StrBlobPtr::operator--()
+{
+	--curr;
+	check(curr, "decrement past begin of strBlobPtr");
+	return *this;
+}
+
+StrBlobPtr& StrBlobPtr::operator++(int)
+{
+	StrBlobPtr ret = *this;
+	++*this;
+	return ret;
+}
+
+StrBlobPtr& StrBlobPtr::operator--(int)
+{
+	StrBlobPtr ret = *this;
+	--*this;
+	return ret;
 }

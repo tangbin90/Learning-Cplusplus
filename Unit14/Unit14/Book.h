@@ -14,7 +14,10 @@ public:
 	Book() = default;
 	Book(unsigned no, std::string name, std::string author, std::string pubdate) :no_(no), name_(name), author_(author), pubdate_(pubdate) { }
 	Book(std::istream &in) { in >> *this; }
-
+	Book(Book&);
+	Book& operator=(const Book&);
+	Book& operator=(Book&&)_NOEXCEPT;
+	Book(Book&&)_NOEXCEPT;
 private:
 	unsigned no_;
 	std::string name_;

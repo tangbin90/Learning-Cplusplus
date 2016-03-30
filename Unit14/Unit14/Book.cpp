@@ -26,3 +26,33 @@ bool operator!=(const Book& lhs, const Book& rhs)
 {
 	return !(lhs.no_ == rhs.no_);
 }
+
+Book& Book::operator = (const Book& rhs) _NOEXCEPT
+{
+	if (this != &rhs)
+	{
+		author_ = rhs.author_;
+		name_ = rhs.name_;
+		no_ = rhs.no_;
+	}
+	return *this;
+}
+
+Book& Book::operator=(Book&& rhs) _NOEXCEPT
+{
+	if (this != &rhs)
+	{
+		author_ = rhs.author_;
+		name_ = rhs.name_;
+		no_ = rhs.no_;
+	}
+	return *this;
+}
+
+Book::Book(Book&& rhs)_NOEXCEPT
+{
+	author_ = rhs.author_;
+	name_ = rhs.name_;
+	no_ = rhs.no_;
+}
+

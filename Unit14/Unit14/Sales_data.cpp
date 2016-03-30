@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Sales_data.h"
+#include <string>
 
 Sales_data::Sales_data(std::istream &is)
 {
@@ -28,15 +29,27 @@ std::ostream& operator<<(std::ostream& out, const Sales_data& sales)
 
 Sales_data operator+(const Sales_data& lhs, const Sales_data& rhs)
 {
-	Sales_data result;
+	Sales_data result = lhs;//除了要处理的数据还有其他内容，因此必须赋值一方
 	result.units_sold=lhs.units_sold + rhs.units_sold;
 	result.revenue = lhs.revenue + rhs.revenue;
 	return result;
 }
 
+//Sales_data& Sales_data::operator+=(const Sales_data &rhs)
+//{
+//	units_sold += rhs.units_sold;
+//	revenue += rhs.revenue;
+//	return *this;
+//}
+
 Sales_data& Sales_data::operator+=(const Sales_data &rhs)
 {
-	units_sold += rhs.units_sold;
-	revenue += rhs.revenue;
+	*this = *this + rhs;
 	return *this;
+}
+
+
+Sales_data& Sales_data::operator=(std::string& isbn)
+{
+	return Sales_data(isbn);
 }
