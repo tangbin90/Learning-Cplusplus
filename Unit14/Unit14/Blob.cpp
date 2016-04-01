@@ -157,3 +157,52 @@ StrBlobPtr& StrBlobPtr::operator--(int)
 	--*this;
 	return ret;
 }
+
+StrBlobPtr StrBlobPtr::operator+ (size_t n)
+{
+	StrBlobPtr strptr = *this;
+	strptr += n;
+	return strptr;
+}
+
+StrBlobPtr& StrBlobPtr::operator+=(size_t n)
+{
+	curr += n;
+	check(curr, "increment past end of StrBlobPtr");
+	return *this;
+}
+
+StrBlobPtr& StrBlobPtr::operator-=(size_t n)
+{
+	curr -= n;
+	check(curr, "increment past begin of StrBlobPtr");
+	return *this;
+}
+
+StrBlobPtr StrBlobPtr::operator-(size_t n)
+{
+	StrBlobPtr strptr = *this;
+	strptr -= n;
+	return strptr;
+}
+
+string & StrBlobPtr::operator*() const
+{
+	auto p = check(curr, "dereference past end");
+	return (*p)[curr];
+}
+
+string* StrBlobPtr::operator->() const
+{
+	return & this->operator*();
+}
+
+const string & ConststrBlobPtr::operator*() const
+{
+	auto p = check(curr, "dereference past end");
+	return (*p)[curr];
+}
+const string* ConststrBlobPtr::operator->() const
+{
+	return &this->operator*();
+}

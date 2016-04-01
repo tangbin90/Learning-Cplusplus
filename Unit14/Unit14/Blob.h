@@ -59,6 +59,14 @@ public:
 	StrBlobPtr& operator--();
 	StrBlobPtr& operator++(int);
 	StrBlobPtr& operator--(int);
+	StrBlobPtr operator+(size_t);
+	StrBlobPtr operator-(size_t);
+	StrBlobPtr& operator+=(size_t n);
+	StrBlobPtr& operator-=(size_t n);
+	string & operator*() const;
+	string* operator->() const;
+
+
 	const string& operator[](std::size_t n) const;
 
 private:
@@ -79,6 +87,9 @@ public:
 	using size_t = vector<string>::size_type;
 	ConststrBlobPtr() :curr(0){}
 	ConststrBlobPtr(const StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz){}
+	const string & operator*() const;
+	const string* operator->() const;
+
 	const string& deref() const
 	{
 		auto p = check(curr, "dereference past end");

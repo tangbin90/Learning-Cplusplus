@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="Blob.h" />
     <ClInclude Include="Book.h" />
+    <ClInclude Include="PtrStrBlobPtr.h" />
     <ClInclude Include="Sales_data.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="String.h" />
