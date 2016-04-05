@@ -42,6 +42,12 @@
     <ClInclude Include="PtrStrBlobPtr.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="if_then_else.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bicaculator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

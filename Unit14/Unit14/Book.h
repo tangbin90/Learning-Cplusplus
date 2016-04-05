@@ -17,6 +17,10 @@ public:
 	Book(Book&);
 	Book& operator=(const Book&);
 	Book& operator=(Book&&)_NOEXCEPT;
+	explicit operator bool() const
+	{
+		return name_ != std::string();
+	}
 	Book(Book&&)_NOEXCEPT;
 private:
 	unsigned no_;

@@ -79,8 +79,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bicaculator.h" />
     <ClInclude Include="Blob.h" />
     <ClInclude Include="Book.h" />
+    <ClInclude Include="if_then_else.h" />
     <ClInclude Include="PtrStrBlobPtr.h" />
     <ClInclude Include="Sales_data.h" />
     <ClInclude Include="stdafx.h" />
