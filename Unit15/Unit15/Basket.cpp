@@ -1,5 +1,6 @@
 #include  "stdafx.h"
-#include "basket.h"
+#include "Quote.h"
+#include "Basket.h"
 
 double Basket::total_receipt(std::ostream &os) const
 {

@@ -64,22 +64,15 @@ public:
 	~Square() = default;
 };
 
-
-double print_total(std::ostream &os, const Quote &item, size_t n)
-{
-	double ret = item.net_price(n);
-	os << "ISBN: " << item.isbn() << "# sold: " << n << " total due:" << ret << std::endl;
-	return ret;
-}
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	Bulk_quote bq("aaaaaaaaaa", 10.0, 20, 0.7);
-	Bulk_quote bq1("aaaaaaaaaa", 15.0, 20, 0.7);
+	Bulk_quote bb = bq;
+	Bulk_quote bq1("bbbbbbbbb", 15.0, 20, 0.7);
 	Basket bas;
 	bas.add_item(bq);
 	bas.add_item(bq1);
-
+	bas.add_item(bb);
 	bas.total_receipt(cout);
 	system("pause");
 	return 0;

@@ -1,14 +1,16 @@
-﻿生成启动时间为 2016/4/7 21:45:55。
-     1>项目“C:\Users\Tangbin\Documents\GitHub\Learning-Cplusplus\Unit15\Unit15\Unit15.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 4/8/2016 1:32:58 AM。
+     1>项目“C:\Users\tangbin\Desktop\GitHub\Learning-Cplusplus\Unit15\Unit15\Unit15.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Unit15.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Basket.cpp Unit15.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Unit15.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Unit15.cpp
          Unit15.cpp
-     1>c:\users\tangbin\documents\github\learning-cplusplus\unit15\unit15\basket.h(64): error C2797: 'Basket::items': 未执行成员初始值列表内的列表初始化或非静态数据成员初始值
-         Basket.cpp
-     1>c:\users\tangbin\documents\github\learning-cplusplus\unit15\unit15\basket.h(64): error C2797: 'Basket::items': 未执行成员初始值列表内的列表初始化或非静态数据成员初始值
-         正在生成代码...
-     1>已完成生成项目“C:\Users\Tangbin\Documents\GitHub\Learning-Cplusplus\Unit15\Unit15\Unit15.vcxproj”(Build 个目标)的操作 - 失败。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tangbin\Desktop\GitHub\Learning-Cplusplus\Unit15\Debug\Unit15.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\tangbin\Desktop\GitHub\Learning-Cplusplus\Unit15\Debug\Unit15.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tangbin\Desktop\GitHub\Learning-Cplusplus\Unit15\Debug\Unit15.lib" /MACHINE:X86 Debug\Basket.obj
+         Debug\Quote.obj
+         Debug\stdafx.obj
+         Debug\Unit15.obj
+         Unit15.vcxproj -> C:\Users\tangbin\Desktop\GitHub\Learning-Cplusplus\Unit15\Debug\Unit15.exe
+     1>已完成生成项目“C:\Users\tangbin\Desktop\GitHub\Learning-Cplusplus\Unit15\Unit15\Unit15.vcxproj”(Build 个目标)的操作。
 
-生成失败。
+生成成功。
 
-已用时间 00:00:00.99
+已用时间 00:00:00.83

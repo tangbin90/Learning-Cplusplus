@@ -1,7 +1,9 @@
 #ifndef QUOTE_H
 #define QUOTE_H
+
 #include <iostream>
 #include <string>
+using namespace std;
 
 class Quote
 {
@@ -96,6 +98,7 @@ protected:
 	double discount = 0.0;
 
 };
+
 class Bulk_quote :public Disc_quote
 {
 public:
@@ -143,6 +146,6 @@ public:
 	double net_price(std::size_t num) const final override;
 
 };
-double print_total(std::ostream &os, const Quote &item, size_t n);
+double print_total(std::ostream &os, const Quote &item, std::size_t n);
 
 #endif
