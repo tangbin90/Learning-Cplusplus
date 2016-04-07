@@ -1,14 +1,14 @@
-﻿生成启动时间为 2016/4/6 17:11:50。
+﻿生成启动时间为 2016/4/7 21:45:55。
      1>项目“C:\Users\Tangbin\Documents\GitHub\Learning-Cplusplus\Unit15\Unit15\Unit15.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Unit15.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Unit15.cpp
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Unit15.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Basket.cpp Unit15.cpp
          Unit15.cpp
-     1>c:\users\tangbin\documents\github\learning-cplusplus\unit15\unit15\unit15.cpp(21): error C2259: “Disc_quote”: 不能实例化抽象类
-                 由于下列成员: 
-                 “double Disc_quote::net_price(size_t) const”: 是抽象的
-                 c:\users\tangbin\documents\github\learning-cplusplus\unit15\unit15\quote.h(42) : 参见“Disc_quote::net_price”的声明
+     1>c:\users\tangbin\documents\github\learning-cplusplus\unit15\unit15\basket.h(64): error C2797: 'Basket::items': 未执行成员初始值列表内的列表初始化或非静态数据成员初始值
+         Basket.cpp
+     1>c:\users\tangbin\documents\github\learning-cplusplus\unit15\unit15\basket.h(64): error C2797: 'Basket::items': 未执行成员初始值列表内的列表初始化或非静态数据成员初始值
+         正在生成代码...
      1>已完成生成项目“C:\Users\Tangbin\Documents\GitHub\Learning-Cplusplus\Unit15\Unit15\Unit15.vcxproj”(Build 个目标)的操作 - 失败。
 
 生成失败。
 
-已用时间 00:00:00.48
+已用时间 00:00:00.99

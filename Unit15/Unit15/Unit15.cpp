@@ -5,6 +5,65 @@
 #include <iostream>
 #include "Quote.h"
 #include <string>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <memory>
+#include "quote.h"
+#include "Basket.h"
+using namespace std;
+// just for 2D shape
+class Shape
+{
+public:
+	typedef std::pair<double, double>    Coordinate;
+
+	Shape() = default;
+	Shape(const std::string& n) :
+		name(n) { }
+
+	virtual double area()       const = 0;
+	virtual double perimeter()  const = 0;
+
+	virtual ~Shape() = default;
+private:
+	std::string name;
+};
+
+class Rectangle : public Shape
+{
+public:
+	Rectangle() = default;
+	Rectangle(const std::string& n,
+		const Coordinate& a,
+		const Coordinate& b,
+		const Coordinate& c,
+		const Coordinate& d) :
+		Shape(n), a(a), b(b), c(c), d(d) { }
+
+	~Rectangle() = default;
+
+protected:
+	Coordinate  a;
+	Coordinate  b;
+	Coordinate  c;
+	Coordinate  d;
+};
+
+class Square : public Rectangle
+{
+public:
+	Square() = default;
+	Square(const std::string& n,
+		const Coordinate& a,
+		const Coordinate& b,
+		const Coordinate& c,
+		const Coordinate& d) :
+		Rectangle(n, a, b, c, d) { }
+
+	~Square() = default;
+};
+
 
 double print_total(std::ostream &os, const Quote &item, size_t n)
 {
@@ -15,9 +74,13 @@ double print_total(std::ostream &os, const Quote &item, size_t n)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Bulk_quote bulk("asdfadf",10,10,0.5);
-	print_total(std::cout, bulk, 20);
-	bulk.debug();
+	Bulk_quote bq("aaaaaaaaaa", 10.0, 20, 0.7);
+	Bulk_quote bq1("aaaaaaaaaa", 15.0, 20, 0.7);
+	Basket bas;
+	bas.add_item(bq);
+	bas.add_item(bq1);
+
+	bas.total_receipt(cout);
 	system("pause");
 	return 0;
 }
