@@ -1,0 +1,17 @@
+﻿生成启动时间为 4/11/2016 12:42:53 AM。
+     1>项目“C:\Users\tangbin\Desktop\GitHub\Learning-Cplusplus\Unit16\Unit16\Unit16.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Unit16.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Unit16.cpp
+         Unit16.cpp
+     1>c:\users\tangbin\desktop\github\learning-cplusplus\unit16\unit16\unit16.cpp(56): error C2144: 语法错误:“unsigned int”的前面应有“;”
+     1>c:\users\tangbin\desktop\github\learning-cplusplus\unit16\unit16\unit16.cpp(56): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>c:\users\tangbin\desktop\github\learning-cplusplus\unit16\unit16\unit16.cpp(56): error C2988: 不可识别的模板声明/定义
+     1>c:\users\tangbin\desktop\github\learning-cplusplus\unit16\unit16\unit16.cpp(56): error C2059: 语法错误:“&”
+     1>c:\users\tangbin\desktop\github\learning-cplusplus\unit16\unit16\unit16.cpp(56): error C2065: “size”: 未声明的标识符
+     1>c:\users\tangbin\desktop\github\learning-cplusplus\unit16\unit16\unit16.cpp(56): error C2090: 函数返回数组
+     1>c:\users\tangbin\desktop\github\learning-cplusplus\unit16\unit16\unit16.cpp(62): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+     1>已完成生成项目“C:\Users\tangbin\Desktop\GitHub\Learning-Cplusplus\Unit16\Unit16\Unit16.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.33
