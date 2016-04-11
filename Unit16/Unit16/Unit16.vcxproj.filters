@@ -27,12 +27,33 @@
     <ClInclude Include="Sales_item.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Blob.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BlobPtr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="debugdelete.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TextQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="shared_ptr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Unit16.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="textquery.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

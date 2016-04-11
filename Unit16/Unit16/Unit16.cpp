@@ -7,7 +7,10 @@
 #include <vector>
 #include <set>
 #include <string>
-
+#include "Blob.h"
+#include "Vec.h"
+#include "debugdelete.h"
+#include "Textquery.h"
 using namespace std;
 
 template<typename T>
@@ -51,17 +54,29 @@ T* end(const T(&arr)[sz])
 	return arr+sz;
 }
 
+template <typename Container>
+std::ostream& print(const Container& constainer, std::ostream& os)
+{
+	for (typename Container::size_type i = 0; i != Container.size(); ++i)
+	{
+		os << constainer[i] << " ";
+	}
+	return os;
+}
 
-//template<typename T, unsigned size>
-//constexpr unsigned getSize(const T(&)[size])
-//{
-//	return size;
-//}
+template <typename Container>
+std::ostream& print1(const Container& constainer, std::ostream& os)
+{
+	for (typename Container::const_iterator i = constainer.cbegin(); i != constainer.cend(); ++i)
+	{
+		os << *i << " ";
+	}
+	return os;
+}
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	string arr[] = { "asdfasdf", "vvvvv", "aaaaa", "dddd" };
-	cout << *begin(arr) << endl << *(end(arr) - 1) << endl;
+	runQueries(ifstream("Alice.txt"));
 	system("pause");
 	return 0;
 }
